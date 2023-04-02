@@ -11,24 +11,20 @@ I then proceeded to Ghidra to see how best I can decompile and analyze the `rans
  
 **My solution of a decryption program to obtain the is shown below:**
 <pre><code>
+path = '/home/sosman/Desktop/secret.txt.pay_up'
+with open(path, 'rb') as f:
+    decrypted_data = b''
+    byte = f.read(1)
+    while byte != b'':
+        decrypted_data += bytes([byte[0] ^ 0x34])
+        byte = f.read(1)
 
-def decrypt(input_data):
-    key = 0x34  
-    output_data = bytearray(len(input_data))
-    for i in range(len(input_data)):
-        output_data[i] = input_data[i] ^ key
-    return output_data
-
+with open('decrypted_data.txt', 'wb') as f:
+    f.write(decrypted_data)
 </pre></code>
 
 
 **Image of the decrypted secret.txt file:**
-
-immediately the main function and it signature  is edited the statement'
-on line 8 of the Decompiler pane became better which was much
-worse before the main function was adjusted from `undefinded 
-main(int param_1,undefined *param_2)` to `int main(argc, char** argv)`
-
 
 **Screenshot of the decryption function in Ghidra updated with human-readable labels.:** 
 
