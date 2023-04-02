@@ -24,6 +24,11 @@ def decrypt(input_data):
 
 **Image of the decrypted secret.txt file:**
 
+immediately the main function and it signature  is edited the statement'
+on line 8 of the Decompiler pane became better which was much
+worse before the main function was adjusted from `undefinded 
+main(int param_1,undefined *param_2)` to `int main(argc, char** argv)`
+
 
 **Screenshot of the decryption function in Ghidra updated with human-readable labels.:** 
 
