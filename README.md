@@ -11,11 +11,13 @@ I then proceeded to Ghidra to see how best I can decompile and analyze the `rans
  
 **My solution of a decryption program to obtain the is shown below:**
 <pre><code>
-#!/usr/bin/env python3
-import string
-import random
 
-""" """
+def decrypt(input_data):
+    key = 0x34  
+    output_data = bytearray(len(input_data))
+    for i in range(len(input_data)):
+        output_data[i] = input_data[i] ^ key
+    return output_data
 
 </pre></code>
 
