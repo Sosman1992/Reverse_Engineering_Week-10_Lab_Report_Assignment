@@ -25,6 +25,7 @@ with open('decrypted_data.txt', 'wb') as f:
 
 
 **Image of the decrypted secret.txt file:**
+  ![ransomware1_decrypt](https://user-images.githubusercontent.com/66968869/229383065-b31b473d-f763-49a1-b4bf-c9479c4b7b02.png)
 
 **Screenshot of the decryption function in Ghidra updated with human-readable labels.:** 
 
