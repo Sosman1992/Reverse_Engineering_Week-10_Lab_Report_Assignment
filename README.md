@@ -25,9 +25,14 @@ with open('decrypted_data.txt', 'wb') as f:
 
 
 **Image of the decrypted secret.txt file:**
-  ![ransomware1_decrypt](https://user-images.githubusercontent.com/66968869/229383065-b31b473d-f763-49a1-b4bf-c9479c4b7b02.png)
+![ransomware1_decrypt](https://user-images.githubusercontent.com/66968869/229383065-b31b473d-f763-49a1-b4bf-c9479c4b7b02.png)
+
 
 **Screenshot of the decryption function in Ghidra updated with human-readable labels.:** 
+![Screenshot from 2023-03-31 05-04-58](https://user-images.githubusercontent.com/66968869/229383156-59e673cf-7b2b-4ed2-a318-cd870179b9fa.png)
 
 **Explanation on how my decryption works:**
+The decrytion read each byte of the file located at path, decrypt it using the XOR operation with 0x34, and store the decrypted data in the decrypted_data variable.
+
+Then, it will open a new file named decrypted_data.txt in binary mode with the mode 'wb', and write the decrypted contents of the input file to this file using the write() method.
 
