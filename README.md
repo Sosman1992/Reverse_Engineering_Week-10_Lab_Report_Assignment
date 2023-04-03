@@ -48,21 +48,27 @@ I then proceeded to Ghidra to see how best I can decompile and analyze the `rans
 **My solution of a decryption program to obtain the is shown below:**
 <pre><code>
 path = '/home/sosman/Desktop/secret.txt.pay_up'
-with open(path, 'rb') as f:
-    decrypted_data = b''
-    byte = f.read(1)
-    while byte != b'':
-        decrypted_data += bytes([byte[0] ^ 0x34])
-        byte = f.read(1)
+# Open the input file
 
-with open('decrypted_data.txt', 'wb') as f:
-    f.write(decrypted_data)
+# Open the file in binary mode
+with open(path, "rb") as input_file:
+    # Read 4 bytes at a time
+    while True:
+        data = input_file.read(4)
+        if not data:
+            # End of file
+            break
+        # Apply the XOR operation to each byte
+        byte_0 = data[0] ^ ord('1')
+        byte_1 = data[1] ^ ord('3')
+        byte_2 = data[2] ^ ord('3')
+        byte_3 = data[3] ^ ord('7')
+        res = chr(byte_0) + chr(byte_1) + chr(byte_2) + chr(byte_3)
+        print(res)
 </pre></code>
 
 
 **Image of the decrypted secret.txt file:**
-
-![ransomware1_decrypt](https://user-images.githubusercontent.com/66968869/229383065-b31b473d-f763-49a1-b4bf-c9479c4b7b02.png)
 
 
 **Screenshot of the decryption function in Ghidra updated with human-readable labels.:** 
