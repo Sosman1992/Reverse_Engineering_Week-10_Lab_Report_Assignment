@@ -70,7 +70,6 @@ with open(path, "rb") as input_file:
 ![ransomeware2_secret_txt](https://user-images.githubusercontent.com/66968869/229653832-5cccc0a2-40a0-4ca0-a9f1-d83a402e15cd.png)
 
 **Screenshot of the decryption function in Ghidra updated with human-readable labels.:** 
-![Screenshot from 2023-03-31 05-04-58](https://user-images.githubusercontent.com/66968869/229383156-59e673cf-7b2b-4ed2-a318-cd870179b9fa.png)
 
 **Explanation on how my decryption works:**
 The decrytion read each byte of the file located at path, decrypt it using the XOR operation with 0x34, and store the decrypted data in the decrypted_data variable.
@@ -116,6 +115,3 @@ with open(path, "rb") as input_file:
 
 
 **Explanation on how my decryption works:**
-The decrytion read each byte of the file located at path, decrypt it using the XOR operation with 0x34, and store the decrypted data in the decrypted_data variable.
-
-Then, it will open a new file named decrypted_data.txt in binary mode with the mode 'wb', and write the decrypted contents of the input file to this file using the write() method.
