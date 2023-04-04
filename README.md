@@ -48,23 +48,21 @@ I then proceeded to Ghidra to see how best I can decompile and analyze the `rans
 **My solution of a decryption program to obtain the is shown below:**
 <pre><code>
 path = '/home/sosman/Desktop/secret.txt.pay_up'
-# Open the input file
 
-# Open the file in binary mode
 with open(path, "rb") as input_file:
-    # Read 4 bytes at a time
+   ''' Read 4 bytes at a time'''
     while True:
         data = input_file.read(4)
         if not data:
-            # End of file
+            '''End of file'''
             break
-        # Apply the XOR operation to each byte
+        '''Applying the XOR operation to each byte'''
         byte_0 = data[0] ^ ord('1')
         byte_1 = data[1] ^ ord('3')
         byte_2 = data[2] ^ ord('3')
         byte_3 = data[3] ^ ord('7')
         res = chr(byte_0) + chr(byte_1) + chr(byte_2) + chr(byte_3)
-        print(res)
+        print(res, end='')
 </pre></code>
 
 
